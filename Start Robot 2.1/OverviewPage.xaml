@@ -1,0 +1,47 @@
+﻿<Page
+    x:Class="Start_Robot_2._1.OverviewPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Start_Robot_2._1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <ScrollViewer>
+        <StackPanel Margin="0,0,0,0" Padding="10,10,10,10">
+            <StackPanel x:Name="StackManageRobots" Padding="10,10,10,10" Margin="0,10,0,0">
+                <TextBlock x:Name="TextHeaderManageRobots" Text="Manage Robots" TextWrapping="Wrap" FontSize="24"/>
+                <TextBlock x:Name="TextRobotsList" Text="Robots List" TextWrapping="Wrap" Margin="0,10,0,0"/>
+                <ListBox x:Name="ListRobots" ItemsSource="{x:Bind _rm.Robots}" Margin="0,5,0,0">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate x:DataType="local:Robot">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{x:Bind Name}" VerticalAlignment="Center" />
+                                <TextBlock Text="{x:Bind Ip}" Margin="5,0,0,0" VerticalAlignment="Center" />
+                                <Button Margin="10,0,0,0" x:Name="ButtonRobotEdit" Click="ButtonRobotEdit_Click">
+                                    <SymbolIcon Symbol="Edit" />
+                                </Button>
+                                <Button Margin="10,0,0,0" x:Name="ButtonRobotRemove" Click="ButtonRobotRemove_Click">
+                                    <SymbolIcon Symbol="Delete" />
+                                </Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <TextBlock x:Name="TextRobotName" Text="Name" TextWrapping="Wrap" Margin="0,10,0,0"/>
+                <TextBox x:Name="InputRobotName" TextWrapping="Wrap" PlaceholderText="Robot name"/>
+                <TextBlock x:Name="TextRobotIp" Text="IP" TextWrapping="Wrap" Margin="0,10,0,0"/>
+                <TextBox x:Name="InputRobotIp" PlaceholderText="Robot IP" TextWrapping="Wrap"/>
+                <TextBlock x:Name="TextRobotLogin" Text="Login" TextWrapping="Wrap" Margin="0,10,0,0"/>
+                <TextBox x:Name="InputRobotLogin" PlaceholderText="Robot login" TextWrapping="Wrap" Margin="0,0,0,0"/>
+                <TextBlock x:Name="TextRobotPassword" Text="Password" TextWrapping="Wrap" Margin="0,10,0,0"/>
+                <TextBox x:Name="InputRobotPassword" PlaceholderText="Robot password" TextWrapping="Wrap"/>
+                <Button x:Name="ButtonCreateRobot" Content="Create" Margin="0,10,0,0" Click="ButtonCreateRobot_Click"/>
+
+            </StackPanel>
+            <ScrollBar/>
+
+        </StackPanel>
+    </ScrollViewer>
+</Page>

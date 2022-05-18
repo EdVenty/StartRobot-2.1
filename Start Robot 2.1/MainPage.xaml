@@ -1,0 +1,90 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Start_Robot_2._1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Custom="using:Microsoft.UI.Xaml.Controls"
+    x:Class="Start_Robot_2._1.MainPage"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <Storyboard x:Name="BadgeTerminalOpacityDown">
+            <DoubleAnimation
+                Storyboard.TargetName="BadgeTerminal"
+                Storyboard.TargetProperty="Opacity"
+                From="1" To="0" Duration="0:0:0.2"
+            />
+        </Storyboard>
+        <Storyboard x:Name="BadgeTerminalOpacityUp">
+            <DoubleAnimation
+                Storyboard.TargetName="BadgeTerminal"
+                Storyboard.TargetProperty="Opacity"
+                From="0" To="1" Duration="0:0:0.2"
+            />
+        </Storyboard>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="AppTitleBar" Background="Transparent" Grid.Row="0">
+        </Grid>
+        <Grid Grid.Row="0" VerticalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <BitmapIcon
+                VerticalAlignment="Center"
+                Foreground="{ThemeResource DefaultTextForegroundThemeBrush}"
+                UriSource="ms-appx:///Assets/Square150x150Logo.scale-200.png"
+                Visibility="Visible" HorizontalAlignment="Left" Margin="10,10,10,10" />
+            <Custom:ProgressRing x:Name="ProgressRobotConnection" HorizontalAlignment="Right" Margin="0,0,10,0"/>
+            <RelativePanel Grid.Column="1">
+                <ComboBox HorizontalAlignment="Stretch" VerticalAlignment="Center" RelativePanel.AlignLeftWithPanel="True" x:Name="ComboRobot" RelativePanel.LeftOf="ToggleConnect" ItemsSource="{Binding ObservableRobots}" SelectionChanged="ComboRobot_SelectionChanged" PlaceholderText="Select robot to start" Margin="0,9,0,0"/>
+                <ToggleButton x:Name="ToggleConnect" VerticalAlignment="Center" Margin="10,9,0,0" HorizontalAlignment="Right" RelativePanel.AlignRightWithPanel="True" Checked="ToggleConnect_Checked" Unchecked="ToggleConnect_Unchecked">
+                    <SymbolIcon Symbol="Link" />
+                </ToggleButton>
+            </RelativePanel>
+        </Grid>
+        <Custom:NavigationView x:Name="NavigationMain" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" ItemInvoked="NavigationView_ItemInvoked" SelectedItem="0" Grid.Row="1" PaneDisplayMode="LeftCompact">
+            <Custom:NavigationView.MenuItems>
+                <Custom:NavigationViewItem Content="Information" Tag="NavigationItemWelcome" x:Name="NavigationItemWelcome">
+                    <Custom:NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xe99a;"/>
+                    </Custom:NavigationViewItem.Icon>
+                </Custom:NavigationViewItem>
+                <Custom:NavigationViewItem Content="Remote" Tag="NavigationItemGamepad" x:Name="NavigationItemGamepad">
+                    <Custom:NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xe8af;"/>
+                    </Custom:NavigationViewItem.Icon>
+                </Custom:NavigationViewItem>
+                <Custom:NavigationViewItem Content="Files" Tag="NavigationItemPrograms" x:Name="NavigationItemPrograms" IsEnabled="{x:Bind RobotsManager.IsRobotRunning}">
+                    <Custom:NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xe8a5;"/>
+                    </Custom:NavigationViewItem.Icon>
+                </Custom:NavigationViewItem>
+                <Custom:NavigationViewItem Content="Controllers" Tag="NavigationItemControllers" x:Name="NavigationItemControllers">
+                    <Custom:NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xe7fc;"/>
+                    </Custom:NavigationViewItem.Icon>
+                </Custom:NavigationViewItem>
+                <Custom:NavigationViewItem Content="Terminal" Tag="NavigationItemRun" x:Name="NavigationItemRun">
+                    <Custom:NavigationViewItem.InfoBadge>
+                        <Custom:InfoBadge x:Name="BadgeTerminal" Opacity="0"/>
+                    </Custom:NavigationViewItem.InfoBadge>
+                    <Custom:NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xe82d;"/>
+                    </Custom:NavigationViewItem.Icon>
+                </Custom:NavigationViewItem>
+            </Custom:NavigationView.MenuItems>
+            <Frame x:Name="PageContent" />
+        </Custom:NavigationView>
+        <Custom:InfoBar IsOpen="False" Severity="Informational" x:Name="BarMain" Grid.Row="1"/>
+    </Grid>
+</Page>

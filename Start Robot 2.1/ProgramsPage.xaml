@@ -1,0 +1,37 @@
+﻿<Page
+    x:Class="Start_Robot_2._1.ProgramsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Start_Robot_2._1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Padding="10,10,10,10">
+        <StackPanel>
+            <controls:DataGrid x:Name="DataFiles" ItemsSource="{x:Bind Files}" AutoGenerateColumns="False" Grid.Row="10" Grid.Column="10" Grid.RowSpan="10" Grid.ColumnSpan="10" SelectionChanged="DataFiles_SelectionChanged" CellEditEnding="DataFiles_CellEditEnding" CellEditEnded="DataFiles_CellEditEnded">
+                <controls:DataGrid.Columns>
+                    <controls:DataGridTextColumn Header="File" Binding="{Binding FileName}" IsReadOnly="True"/>
+                    <controls:DataGridCheckBoxColumn Header="Run on boot" Binding="{Binding RunOnBoot}" />
+                    <controls:DataGridCheckBoxColumn Header="Running" Binding="{Binding IsRunning}" />
+                </controls:DataGrid.Columns>
+            </controls:DataGrid>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+                <Button Margin="0,0,0,0" HorizontalAlignment="Center" Name="ButtonUpload" Click="ButtonUpload_Click">
+                    <StackPanel Orientation="Horizontal" Padding="5,5,5,5">
+                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xE898;" />
+                        <TextBlock Text="Upload file" HorizontalAlignment="Left" Margin="10,0,0,0" />
+                    </StackPanel>
+                </Button>
+                <Button Margin="10,0,0,0" HorizontalAlignment="Center" Name="ButtonRemove" Click="ButtonRemove_Click" IsEnabled="False">
+                    <StackPanel Orientation="Horizontal" Padding="5,5,5,5">
+                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xe74d;" />
+                        <TextBlock Text="Remove file" HorizontalAlignment="Left" Margin="10,0,0,0" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
