@@ -56,22 +56,22 @@
             <Custom:NavigationView.MenuItems>
                 <Custom:NavigationViewItem Content="Information" Tag="NavigationItemWelcome" x:Name="NavigationItemWelcome">
                     <Custom:NavigationViewItem.Icon>
-                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xe99a;"/>
+                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xe99a;"/>
                     </Custom:NavigationViewItem.Icon>
                 </Custom:NavigationViewItem>
                 <Custom:NavigationViewItem Content="Remote" Tag="NavigationItemGamepad" x:Name="NavigationItemGamepad">
                     <Custom:NavigationViewItem.Icon>
-                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xe8af;"/>
+                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xe8af;"/>
                     </Custom:NavigationViewItem.Icon>
                 </Custom:NavigationViewItem>
                 <Custom:NavigationViewItem Content="Files" Tag="NavigationItemPrograms" x:Name="NavigationItemPrograms" IsEnabled="{x:Bind RobotsManager.IsRobotRunning}">
                     <Custom:NavigationViewItem.Icon>
-                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xe8a5;"/>
+                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xe8a5;"/>
                     </Custom:NavigationViewItem.Icon>
                 </Custom:NavigationViewItem>
                 <Custom:NavigationViewItem Content="Controllers" Tag="NavigationItemControllers" x:Name="NavigationItemControllers">
                     <Custom:NavigationViewItem.Icon>
-                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xe7fc;"/>
+                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xe7fc;"/>
                     </Custom:NavigationViewItem.Icon>
                 </Custom:NavigationViewItem>
                 <Custom:NavigationViewItem Content="Terminal" Tag="NavigationItemRun" x:Name="NavigationItemRun">
@@ -79,7 +79,7 @@
                         <Custom:InfoBadge x:Name="BadgeTerminal" Opacity="0"/>
                     </Custom:NavigationViewItem.InfoBadge>
                     <Custom:NavigationViewItem.Icon>
-                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xe82d;"/>
+                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xe82d;"/>
                     </Custom:NavigationViewItem.Icon>
                 </Custom:NavigationViewItem>
             </Custom:NavigationView.MenuItems>

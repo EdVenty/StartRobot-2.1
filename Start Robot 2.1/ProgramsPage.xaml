@@ -21,13 +21,13 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
                 <Button Margin="0,0,0,0" HorizontalAlignment="Center" Name="ButtonUpload" Click="ButtonUpload_Click">
                     <StackPanel Orientation="Horizontal" Padding="5,5,5,5">
-                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xE898;" />
+                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE898;" />
                         <TextBlock Text="Upload file" HorizontalAlignment="Left" Margin="10,0,0,0" />
                     </StackPanel>
                 </Button>
                 <Button Margin="10,0,0,0" HorizontalAlignment="Center" Name="ButtonRemove" Click="ButtonRemove_Click" IsEnabled="False">
                     <StackPanel Orientation="Horizontal" Padding="5,5,5,5">
-                        <FontIcon FontFamily="Segoe Fluent Icons" Glyph="&#xe74d;" />
+                        <FontIcon FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xe74d;" />
                         <TextBlock Text="Remove file" HorizontalAlignment="Left" Margin="10,0,0,0" />
                     </StackPanel>
                 </Button>
